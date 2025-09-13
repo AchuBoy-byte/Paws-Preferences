@@ -11,37 +11,84 @@ body {
 .app {
   text-align: center;
   max-width: 400px;
-  padding: 20px;
-  background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-#card img {
   width: 100%;
-  border-radius: 10px;
-  margin: 15px 0;
+  padding: 20px;
 }
 
-.buttons button {
-  margin: 10px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 16px;
+.card-stack {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  margin-bottom: 20px;
 }
 
-#likeBtn {
-  background: #4CAF50;
-  color: white;
+.card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#dislikeBtn {
-  background: #f44336;
-  color: white;
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Feedback overlays */
+.card .feedback {
+  position: absolute;
+  top: 20px;
+  font-size: 3em;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.feedback.like {
+  left: 20px;
+  color: green;
+}
+
+.feedback.dislike {
+  right: 20px;
+  color: red;
 }
 
 .hidden {
   display: none;
+}
+
+.buttons {
+  margin-top: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+#likeBtn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+#dislikeBtn {
+  background-color: #f44336;
+  color: white;
+}
+
+button:hover {
+  opacity: 0.8;
 }
