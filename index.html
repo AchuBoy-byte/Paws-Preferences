@@ -3,26 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paws & Preferences</title>
+  <title>Paws & Preferences 🐾</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="app">
     <h1>Paws & Preferences 🐾</h1>
-    <div id="card">
-      <img id="catImage" src="" alt="Cat Image">
-    </div>
+    <div id="card-stack" class="card-stack"></div>
+
+    <!-- Fallback buttons for desktop -->
     <div class="buttons">
       <button id="dislikeBtn">👎 Dislike</button>
       <button id="likeBtn">👍 Like</button>
     </div>
+
     <div id="summary" class="hidden">
       <h2>Summary</h2>
       <p id="resultText"></p>
       <div id="likedCats"></div>
     </div>
   </div>
+
+  <!-- Hammer.js for swipe gestures -->
+  <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
-
