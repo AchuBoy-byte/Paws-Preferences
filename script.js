@@ -86,15 +86,17 @@ function showSummary() {
   });
 }
 
-// Button fallback
-likeBtn.addEventListener("click", () => {
+// Simulate swipe for buttons
+function simulateButtonSwipe(action) {
   const topCard = cardStack.lastElementChild;
-  if (topCard) handleSwipe(topCard, "like", topCard.querySelector("img").src);
-});
+  if (!topCard) return;
 
-dislikeBtn.addEventListener("click", () => {
-  const topCard = cardStack.lastElementChild;
-  if (topCard) handleSwipe(topCard, "dislike", topCard.querySelector("img").src);
-});
+  const url = topCard.querySelector("img").src;
+  handleSwipe(topCard, action, url);
+}
+
+// Button fallback with animation
+likeBtn.addEventListener("click", () => simulateButtonSwipe("like"));
+dislikeBtn.addEventListener("click", () => simulateButtonSwipe("dislike"));
 
 loadCats();
