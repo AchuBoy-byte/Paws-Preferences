@@ -86,16 +86,28 @@ function showSummary() {
   });
 }
 
-// Simulate swipe for buttons
+// Find the top visible card (highest z-index)
+function getTopCard() {
+  const cards = Array.from(cardStack.children);
+  if (cards.length === 0) return null;
+
+  return cards.reduce((top, card) => {
+    const zIndex = parseInt(card.style.zIndex || 0, 10);
+    const topZ = parseInt(top.style.zIndex || 0, 10);
+    return zIndex > topZ ? card : top;
+  });
+}
+
+// Simulate swipe for buttons (with animation)
 function simulateButtonSwipe(action) {
-  const topCard = cardStack.lastElementChild;
+  const topCard = getTopCard();
   if (!topCard) return;
 
   const url = topCard.querySelector("img").src;
   handleSwipe(topCard, action, url);
 }
 
-// Button fallback with animation
+// Button fallback
 likeBtn.addEventListener("click", () => simulateButtonSwipe("like"));
 dislikeBtn.addEventListener("click", () => simulateButtonSwipe("dislike"));
 
