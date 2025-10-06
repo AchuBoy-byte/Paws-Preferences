@@ -54,16 +54,16 @@ function handleSwipe(card, action, url) {
 
   if (action === "like") {
     likeText.style.opacity = 1;
-    card.style.transform = "translateX(500px) rotate(20deg)";
+    card.style.transform = "translateX(300px) rotate(30deg)";
     likedCats.push(url);
   } else {
     dislikeText.style.opacity = 1;
-    card.style.transform = "translateX(-500px) rotate(-20deg)";
+    card.style.transform = "translateX(-300px) rotate(-30deg)";
   }
 
-  card.style.transition = "0.5s";
+  card.style.transition = "1.0s";
 
-  setTimeout(() => card.remove(), 400);
+  setTimeout(() => card.remove(), 600);
 
   if (cardStack.children.length === 1) {
     showSummary();
@@ -112,3 +112,4 @@ likeBtn.addEventListener("click", () => simulateButtonSwipe("like"));
 dislikeBtn.addEventListener("click", () => simulateButtonSwipe("dislike"));
 
 loadCats();
+
